@@ -1575,6 +1575,10 @@ var ExternalNameConfigs = map[string]config.ExternalName{
 	// imported using the service action ID. which has provider-generated
 	// random parts: act-f1w12eperfslh
 	"aws_servicecatalog_service_action": config.IdentifierFromProvider,
+	// imported using the provisioned product ID,
+	// which has provider-generated random parts:
+	// pp-dnigbtea24ste
+	"aws_servicecatalog_provisioned_product": config.IdentifierFromProvider,
 }
 
 func lambdaFunctionURL() config.ExternalName {

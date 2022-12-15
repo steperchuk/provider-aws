@@ -237,6 +237,48 @@ func (mg *ProductPortfolioAssociation) ResolveReferences(ctx context.Context, c 
 	return nil
 }
 
+// ResolveReferences of this ProvisionedProduct.
+func (mg *ProvisionedProduct) ResolveReferences(ctx context.Context, c client.Reader) error {
+	r := reference.NewAPIResolver(c, mg)
+
+	var rsp reference.ResolutionResponse
+	var err error
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ProductName),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.ProductNameRef,
+		Selector:     mg.Spec.ForProvider.ProductNameSelector,
+		To: reference.To{
+			List:    &ProductList{},
+			Managed: &Product{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.ProductName")
+	}
+	mg.Spec.ForProvider.ProductName = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.ProductNameRef = rsp.ResolvedReference
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ProvisioningArtifactName),
+		Extract:      reference.ExternalName(),
+		Reference:    mg.Spec.ForProvider.ProvisioningArtifactNameRef,
+		Selector:     mg.Spec.ForProvider.ProvisioningArtifactNameSelector,
+		To: reference.To{
+			List:    &ProvisioningArtifactList{},
+			Managed: &ProvisioningArtifact{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.ProvisioningArtifactName")
+	}
+	mg.Spec.ForProvider.ProvisioningArtifactName = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.ProvisioningArtifactNameRef = rsp.ResolvedReference
+
+	return nil
+}
+
 // ResolveReferences of this ProvisioningArtifact.
 func (mg *ProvisioningArtifact) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)
