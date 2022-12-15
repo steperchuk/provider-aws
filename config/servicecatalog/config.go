@@ -73,12 +73,10 @@ func Configure(p *config.Provider) {
 		}
 	})
 	p.AddResourceConfigurator("aws_servicecatalog_provisioned_product", func(r *config.Resource) {
-		r.References["product_name"] = config.Reference{
+		r.References["product_id"] = config.Reference{
 			Type: "github.com/upbound/provider-aws/apis/servicecatalog/v1beta1.Product",
 		}
-	})
-	p.AddResourceConfigurator("aws_servicecatalog_provisioned_product", func(r *config.Resource) {
-		r.References["provisioning_artifact_name"] = config.Reference{
+		r.References["provisioning_artifact_id"] = config.Reference{
 			Type: "github.com/upbound/provider-aws/apis/servicecatalog/v1beta1.ProvisioningArtifact",
 		}
 	})

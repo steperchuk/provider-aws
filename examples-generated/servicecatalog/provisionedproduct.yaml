@@ -9,12 +9,8 @@ metadata:
 spec:
   forProvider:
     name: example
-    productNameSelector:
-      matchLabels:
-        testing.upbound.io/example-name: example
-    provisioningArtifactNameSelector:
-      matchLabels:
-        testing.upbound.io/example-name: example
+    productName: Example product
+    provisioningArtifactName: Example version
     provisioningParameters:
     - key: foo
       value: bar

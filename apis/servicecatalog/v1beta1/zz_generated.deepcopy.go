@@ -1628,40 +1628,40 @@ func (in *ProvisionedProductParameters) DeepCopyInto(out *ProvisionedProductPara
 		*out = new(string)
 		**out = **in
 	}
+	if in.ProductIDRef != nil {
+		in, out := &in.ProductIDRef, &out.ProductIDRef
+		*out = new(v1.Reference)
+		(*in).DeepCopyInto(*out)
+	}
+	if in.ProductIDSelector != nil {
+		in, out := &in.ProductIDSelector, &out.ProductIDSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.ProductName != nil {
 		in, out := &in.ProductName, &out.ProductName
 		*out = new(string)
 		**out = **in
-	}
-	if in.ProductNameRef != nil {
-		in, out := &in.ProductNameRef, &out.ProductNameRef
-		*out = new(v1.Reference)
-		(*in).DeepCopyInto(*out)
-	}
-	if in.ProductNameSelector != nil {
-		in, out := &in.ProductNameSelector, &out.ProductNameSelector
-		*out = new(v1.Selector)
-		(*in).DeepCopyInto(*out)
 	}
 	if in.ProvisioningArtifactID != nil {
 		in, out := &in.ProvisioningArtifactID, &out.ProvisioningArtifactID
 		*out = new(string)
 		**out = **in
 	}
+	if in.ProvisioningArtifactIDRef != nil {
+		in, out := &in.ProvisioningArtifactIDRef, &out.ProvisioningArtifactIDRef
+		*out = new(v1.Reference)
+		(*in).DeepCopyInto(*out)
+	}
+	if in.ProvisioningArtifactIDSelector != nil {
+		in, out := &in.ProvisioningArtifactIDSelector, &out.ProvisioningArtifactIDSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.ProvisioningArtifactName != nil {
 		in, out := &in.ProvisioningArtifactName, &out.ProvisioningArtifactName
 		*out = new(string)
 		**out = **in
-	}
-	if in.ProvisioningArtifactNameRef != nil {
-		in, out := &in.ProvisioningArtifactNameRef, &out.ProvisioningArtifactNameRef
-		*out = new(v1.Reference)
-		(*in).DeepCopyInto(*out)
-	}
-	if in.ProvisioningArtifactNameSelector != nil {
-		in, out := &in.ProvisioningArtifactNameSelector, &out.ProvisioningArtifactNameSelector
-		*out = new(v1.Selector)
-		(*in).DeepCopyInto(*out)
 	}
 	if in.ProvisioningParameters != nil {
 		in, out := &in.ProvisioningParameters, &out.ProvisioningParameters

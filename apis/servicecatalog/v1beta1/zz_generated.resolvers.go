@@ -245,36 +245,36 @@ func (mg *ProvisionedProduct) ResolveReferences(ctx context.Context, c client.Re
 	var err error
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
-		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ProductName),
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ProductID),
 		Extract:      reference.ExternalName(),
-		Reference:    mg.Spec.ForProvider.ProductNameRef,
-		Selector:     mg.Spec.ForProvider.ProductNameSelector,
+		Reference:    mg.Spec.ForProvider.ProductIDRef,
+		Selector:     mg.Spec.ForProvider.ProductIDSelector,
 		To: reference.To{
 			List:    &ProductList{},
 			Managed: &Product{},
 		},
 	})
 	if err != nil {
-		return errors.Wrap(err, "mg.Spec.ForProvider.ProductName")
+		return errors.Wrap(err, "mg.Spec.ForProvider.ProductID")
 	}
-	mg.Spec.ForProvider.ProductName = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.ProductNameRef = rsp.ResolvedReference
+	mg.Spec.ForProvider.ProductID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.ProductIDRef = rsp.ResolvedReference
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
-		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ProvisioningArtifactName),
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ProvisioningArtifactID),
 		Extract:      reference.ExternalName(),
-		Reference:    mg.Spec.ForProvider.ProvisioningArtifactNameRef,
-		Selector:     mg.Spec.ForProvider.ProvisioningArtifactNameSelector,
+		Reference:    mg.Spec.ForProvider.ProvisioningArtifactIDRef,
+		Selector:     mg.Spec.ForProvider.ProvisioningArtifactIDSelector,
 		To: reference.To{
 			List:    &ProvisioningArtifactList{},
 			Managed: &ProvisioningArtifact{},
 		},
 	})
 	if err != nil {
-		return errors.Wrap(err, "mg.Spec.ForProvider.ProvisioningArtifactName")
+		return errors.Wrap(err, "mg.Spec.ForProvider.ProvisioningArtifactID")
 	}
-	mg.Spec.ForProvider.ProvisioningArtifactName = reference.ToPtrValue(rsp.ResolvedValue)
-	mg.Spec.ForProvider.ProvisioningArtifactNameRef = rsp.ResolvedReference
+	mg.Spec.ForProvider.ProvisioningArtifactID = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.ProvisioningArtifactIDRef = rsp.ResolvedReference
 
 	return nil
 }

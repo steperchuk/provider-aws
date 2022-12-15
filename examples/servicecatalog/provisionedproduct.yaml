@@ -9,10 +9,10 @@ metadata:
 spec:
   forProvider:
     name: example
-    productNameSelector: 
+    productIdSelector:
       matchLabels:
         testing.upbound.io/example-name: exampleprod
-    provisioningArtifactNameSelector:
+    provisioningArtifactIdSelector:
       matchLabels:
         testing.upbound.io/example-name: example
     provisioningParameters:
@@ -39,7 +39,6 @@ spec:
     provisioningArtifactParameters:
       - templateUrl: https://s3-us-west-1.amazonaws.com/cloudformation-templates-us-west-1/LAMP_Single_Instance.template
         type: "CLOUD_FORMATION_TEMPLATE"
-        name: example
     region: us-west-1
     tags:
       foo: bar

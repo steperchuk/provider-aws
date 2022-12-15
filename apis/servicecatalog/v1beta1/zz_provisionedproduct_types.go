@@ -97,38 +97,38 @@ type ProvisionedProductParameters struct {
 	PathName *string `json:"pathName,omitempty" tf:"path_name,omitempty"`
 
 	// Product identifier. For example, prod-abcdzk7xy33qa. You must provide product_id or product_name, but not both.
+	// +crossplane:generate:reference:type=github.com/upbound/provider-aws/apis/servicecatalog/v1beta1.Product
 	// +kubebuilder:validation:Optional
 	ProductID *string `json:"productId,omitempty" tf:"product_id,omitempty"`
 
+	// Reference to a Product in servicecatalog to populate productId.
+	// +kubebuilder:validation:Optional
+	ProductIDRef *v1.Reference `json:"productIdRef,omitempty" tf:"-"`
+
+	// Selector for a Product in servicecatalog to populate productId.
+	// +kubebuilder:validation:Optional
+	ProductIDSelector *v1.Selector `json:"productIdSelector,omitempty" tf:"-"`
+
 	// Name of the product. You must provide product_id or product_name, but not both.
-	// +crossplane:generate:reference:type=github.com/upbound/provider-aws/apis/servicecatalog/v1beta1.Product
 	// +kubebuilder:validation:Optional
 	ProductName *string `json:"productName,omitempty" tf:"product_name,omitempty"`
 
-	// Reference to a Product in servicecatalog to populate productName.
-	// +kubebuilder:validation:Optional
-	ProductNameRef *v1.Reference `json:"productNameRef,omitempty" tf:"-"`
-
-	// Selector for a Product in servicecatalog to populate productName.
-	// +kubebuilder:validation:Optional
-	ProductNameSelector *v1.Selector `json:"productNameSelector,omitempty" tf:"-"`
-
 	// Identifier of the provisioning artifact. For example, pa-4abcdjnxjj6ne. You must provide the provisioning_artifact_id or provisioning_artifact_name, but not both.
+	// +crossplane:generate:reference:type=github.com/upbound/provider-aws/apis/servicecatalog/v1beta1.ProvisioningArtifact
 	// +kubebuilder:validation:Optional
 	ProvisioningArtifactID *string `json:"provisioningArtifactId,omitempty" tf:"provisioning_artifact_id,omitempty"`
 
+	// Reference to a ProvisioningArtifact in servicecatalog to populate provisioningArtifactId.
+	// +kubebuilder:validation:Optional
+	ProvisioningArtifactIDRef *v1.Reference `json:"provisioningArtifactIdRef,omitempty" tf:"-"`
+
+	// Selector for a ProvisioningArtifact in servicecatalog to populate provisioningArtifactId.
+	// +kubebuilder:validation:Optional
+	ProvisioningArtifactIDSelector *v1.Selector `json:"provisioningArtifactIdSelector,omitempty" tf:"-"`
+
 	// Name of the provisioning artifact. You must provide the provisioning_artifact_id or provisioning_artifact_name, but not both.
-	// +crossplane:generate:reference:type=github.com/upbound/provider-aws/apis/servicecatalog/v1beta1.ProvisioningArtifact
 	// +kubebuilder:validation:Optional
 	ProvisioningArtifactName *string `json:"provisioningArtifactName,omitempty" tf:"provisioning_artifact_name,omitempty"`
-
-	// Reference to a ProvisioningArtifact in servicecatalog to populate provisioningArtifactName.
-	// +kubebuilder:validation:Optional
-	ProvisioningArtifactNameRef *v1.Reference `json:"provisioningArtifactNameRef,omitempty" tf:"-"`
-
-	// Selector for a ProvisioningArtifact in servicecatalog to populate provisioningArtifactName.
-	// +kubebuilder:validation:Optional
-	ProvisioningArtifactNameSelector *v1.Selector `json:"provisioningArtifactNameSelector,omitempty" tf:"-"`
 
 	// Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
 	// +kubebuilder:validation:Optional

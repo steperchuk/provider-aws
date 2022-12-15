@@ -98,13 +98,9 @@ spec:
                     description: Product identifier. For example, prod-abcdzk7xy33qa.
                       You must provide product_id or product_name, but not both.
                     type: string
-                  productName:
-                    description: Name of the product. You must provide product_id
-                      or product_name, but not both.
-                    type: string
-                  productNameRef:
+                  productIdRef:
                     description: Reference to a Product in servicecatalog to populate
-                      productName.
+                      productId.
                     properties:
                       name:
                         description: Name of the referenced object.
@@ -137,9 +133,9 @@ spec:
                     required:
                     - name
                     type: object
-                  productNameSelector:
+                  productIdSelector:
                     description: Selector for a Product in servicecatalog to populate
-                      productName.
+                      productId.
                     properties:
                       matchControllerRef:
                         description: MatchControllerRef ensures an object with the
@@ -177,19 +173,18 @@ spec:
                             type: string
                         type: object
                     type: object
+                  productName:
+                    description: Name of the product. You must provide product_id
+                      or product_name, but not both.
+                    type: string
                   provisioningArtifactId:
                     description: Identifier of the provisioning artifact. For example,
                       pa-4abcdjnxjj6ne. You must provide the provisioning_artifact_id
                       or provisioning_artifact_name, but not both.
                     type: string
-                  provisioningArtifactName:
-                    description: Name of the provisioning artifact. You must provide
-                      the provisioning_artifact_id or provisioning_artifact_name,
-                      but not both.
-                    type: string
-                  provisioningArtifactNameRef:
+                  provisioningArtifactIdRef:
                     description: Reference to a ProvisioningArtifact in servicecatalog
-                      to populate provisioningArtifactName.
+                      to populate provisioningArtifactId.
                     properties:
                       name:
                         description: Name of the referenced object.
@@ -222,9 +217,9 @@ spec:
                     required:
                     - name
                     type: object
-                  provisioningArtifactNameSelector:
+                  provisioningArtifactIdSelector:
                     description: Selector for a ProvisioningArtifact in servicecatalog
-                      to populate provisioningArtifactName.
+                      to populate provisioningArtifactId.
                     properties:
                       matchControllerRef:
                         description: MatchControllerRef ensures an object with the
@@ -262,6 +257,11 @@ spec:
                             type: string
                         type: object
                     type: object
+                  provisioningArtifactName:
+                    description: Name of the provisioning artifact. You must provide
+                      the provisioning_artifact_id or provisioning_artifact_name,
+                      but not both.
+                    type: string
                   provisioningParameters:
                     description: Configuration block with parameters specified by
                       the administrator that are required for provisioning the product.
