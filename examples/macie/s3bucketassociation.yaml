@@ -1,0 +1,18 @@
+apiVersion: macie.aws.upbound.io/v1beta1
+kind: S3BucketAssociation
+metadata:
+  annotations:
+    meta.upbound.io/example-id: macie/v1beta1/s3bucketassociation
+  labels:
+    testing.upbound.io/example-name: example
+  name: example
+spec:
+  forProvider:
+    bucketName: tf-macie-example
+    classificationType:
+    - oneTime: FULL
+    prefix: data
+    region: us-west-1
+
+---
+

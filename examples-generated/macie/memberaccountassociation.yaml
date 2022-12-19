@@ -1,0 +1,15 @@
+apiVersion: macie.aws.upbound.io/v1beta1
+kind: MemberAccountAssociation
+metadata:
+  annotations:
+    meta.upbound.io/example-id: macie/v1beta1/memberaccountassociation
+  labels:
+    testing.upbound.io/example-name: example
+  name: example
+spec:
+  forProvider:
+    memberAccountId: "123456789012"
+    region: us-west-1
+
+---
+

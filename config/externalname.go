@@ -1626,6 +1626,15 @@ var ExternalNameConfigs = map[string]config.ExternalName{
 	//
 	// DirectoryService directories can be imported using the directory id
 	"aws_directory_service_directory": config.IdentifierFromProvider,
+
+	// macie
+	//
+	// No import
+	// TODO: For now API is not normalized. While testing resource we can check the actual ID and normalize the API.
+	"aws_macie_member_account_association": config.IdentifierFromProvider,
+	// No import
+	// TODO: For now API is not normalized. While testing resource we can check the actual ID and normalize the API.
+	"aws_macie_s3_bucket_association": config.IdentifierFromProvider,
 }
 
 func lambdaFunctionURL() config.ExternalName {

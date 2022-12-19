@@ -466,6 +466,8 @@ import (
 	slottype "github.com/upbound/provider-aws/internal/controller/lexmodels/slottype"
 	association "github.com/upbound/provider-aws/internal/controller/licensemanager/association"
 	licenseconfiguration "github.com/upbound/provider-aws/internal/controller/licensemanager/licenseconfiguration"
+	memberaccountassociation "github.com/upbound/provider-aws/internal/controller/macie/memberaccountassociation"
+	s3bucketassociation "github.com/upbound/provider-aws/internal/controller/macie/s3bucketassociation"
 	broker "github.com/upbound/provider-aws/internal/controller/mq/broker"
 	configurationmq "github.com/upbound/provider-aws/internal/controller/mq/configuration"
 	clusterneptune "github.com/upbound/provider-aws/internal/controller/neptune/cluster"
@@ -1047,6 +1049,8 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		slottype.Setup,
 		association.Setup,
 		licenseconfiguration.Setup,
+		memberaccountassociation.Setup,
+		s3bucketassociation.Setup,
 		broker.Setup,
 		configurationmq.Setup,
 		clusterneptune.Setup,
